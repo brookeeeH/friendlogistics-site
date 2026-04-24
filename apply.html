@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drive With Us — JBJ Freight</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0d1b2a;
+    color: #e8edf2;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .page { max-width: 620px; margin: 0 auto; }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .logo {
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #e07b2a;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .subhead {
+    font-size: 15px;
+    color: #8a9bb0;
+    line-height: 1.6;
+  }
+
+  .card {
+    background: #1a2e42;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e07b2a;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+  }
+
+  .field { margin-bottom: 1.25rem; }
+  .field:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-size: 13px;
+    color: #8a9bb0;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  label .req { color: #e07b2a; margin-left: 2px; }
+  label .opt { color: #5a6a7a; font-weight: 400; margin-left: 4px; }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    background: #0d1b2a;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    color: #e8edf2;
+    font-size: 15px;
+    padding: 10px 14px;
+    font-family: inherit;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #e07b2a;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a9bb0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  select option { background: #1a2e42; }
+
+  textarea { resize: vertical; min-height: 80px; }
+
+  .radio-group {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #0d1b2a;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 9px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #e8edf2;
+    transition: border-color 0.15s, background 0.15s;
+    flex: 1;
+    min-width: 100px;
+    justify-content: center;
+  }
+
+  .radio-option input[type="radio"] {
+    width: auto;
+    accent-color: #e07b2a;
+    cursor: pointer;
+  }
+
+  .radio-option:has(input:checked) {
+    border-color: #e07b2a;
+    background: rgba(224,123,42,0.1);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin: 1.25rem 0;
+  }
+
+  .call-option {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 14px;
+    color: #8a9bb0;
+    line-height: 1.6;
+  }
+
+  .call-option strong { color: #e8edf2; }
+  .call-option a { color: #e07b2a; text-decoration: none; }
+
+  .submit-btn {
+    width: 100%;
+    background: #e07b2a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  .submit-btn:hover { background: #c96e22; }
+  .submit-btn:active { transform: scale(0.99); }
+
+  .privacy-note {
+    text-align: center;
+    font-size: 12px;
+    color: #5a6a7a;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+
+  .privacy-note a { color: #8a9bb0; }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(29,158,117,0.1);
+    border: 1px solid rgba(29,158,117,0.3);
+    border-radius: 12px;
+    color: #2ec090;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link {
+    display: block;
+    text-align: center;
+    color: #8a9bb0;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+  }
+
+  .back-link:hover { color: #e8edf2; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="logo">JBJ Freight &amp; Friend Logistics</div>
+    <h1>Interested in Driving With Us?</h1>
+    <p class="subhead">Fill out the short form below and we'll be in touch. Long haul refrigerated freight — real miles, real pay, a team that picks up the phone.</p>
+  </div>
+
+  <div class="success-msg" id="successMsg">
+    ✓ We got your info — thank you!<br>
+    <span style="font-size:14px; color: #8a9bb0;">Brooke or Dave will reach out to you directly within 1 business day.</span>
+  </div>
+
+  <!-- FORMSPREE: replace YOUR_FORM_ID below with your Formspree form ID -->
+  <!-- Sign up free at formspree.io, create a form, copy the ID from the endpoint URL -->
+  <form id="applyForm" action="https://formspree.io/f/xwvaywlp" method="POST">
+
+    <div class="card">
+      <div class="card-title">About the Driver</div>
+
+      <div class="field">
+        <label>Full Name <span class="req">*</span></label>
+        <input type="text" name="driver_name" placeholder="First and last name" required>
+      </div>
+
+      <div class="field">
+        <label>Phone Number <span class="req">*</span></label>
+        <input type="tel" name="driver_phone" placeholder="(555) 555-5555" required>
+      </div>
+
+      <div class="field">
+        <label>Email Address <span class="opt">(optional)</span></label>
+        <input type="email" name="driver_email" placeholder="your@email.com">
+      </div>
+
+      <div class="field">
+        <label>CDL Number &amp; State <span class="opt">(optional — helps us verify)</span></label>
+        <input type="text" name="cdl_info" placeholder="e.g. NE1234567">
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Experience</div>
+
+      <div class="field">
+        <label>Years of OTR Experience <span class="req">*</span></label>
+        <select name="otr_years" required>
+          <option value="" disabled selected>Select years of experience</option>
+          <option value="2-5">2–5 years</option>
+          <option value="5-10">5–10 years</option>
+          <option value="10+">10+ years</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Produce / Reefer Experience? <span class="req">*</span></label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="produce_exp" value="Yes" required> Yes
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="produce_exp" value="No"> No
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="produce_exp" value="Some"> Some
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Driver Type <span class="req">*</span></label>
+        <select name="driver_type" required>
+          <option value="" disabled selected>What best describes you?</option>
+          <option value="Owner-Operator">Owner-Operator (own authority)</option>
+          <option value="Lease Purchase">Lease Purchase (looking for a truck)</option>
+          <option value="Company Driver">Company Driver</option>
+          <option value="Not Sure">Not sure yet — open to options</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Referral Info</div>
+
+      <div class="field">
+        <label>Who referred you? <span class="opt">(optional)</span></label>
+        <input type="text" name="referred_by" placeholder="Name of person who sent you our way">
+      </div>
+
+      <div class="field">
+        <label>Anything else you want us to know? <span class="opt">(optional)</span></label>
+        <textarea name="notes" placeholder="Current equipment, preferred lanes, questions for us..."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit My Info →</button>
+
+    <p class="privacy-note">
+      Your information is submitted securely over HTTPS and goes directly to our team.<br>
+      We do not sell or share your information.<br>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </p>
+
+  </form>
+
+  <hr class="divider" style="margin: 2rem 0;">
+
+  <div class="call-option">
+    <strong>Prefer to talk instead?</strong><br>
+    <a href="tel:+14022051216">Call</a> or <a href="sms:+14022051216">text</a> our office at 402-205-1216<br>
+    We answer. Even at 2am.
+  </div>
+
+  <a href="/" class="back-link">← Back to jbjfreight.com</a>
+
+</div>
+
+<script>
+  document.getElementById('applyForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+        window.scrollTo(0, 0);
+      } else {
+        alert('Something went wrong — please call or text Brooke directly.');
+      }
+    } catch {
+      alert('Something went wrong — please call or text Brooke directly.');
+    }
+  });
+</script>
+</body>
+</html>
