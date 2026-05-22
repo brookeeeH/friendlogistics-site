@@ -152,7 +152,7 @@
     margin: 1.25rem 0;
   }
 
-  .call-option {
+  .contact-option {
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 8px;
@@ -163,8 +163,8 @@
     line-height: 1.6;
   }
 
-  .call-option strong { color: #e8edf2; }
-  .call-option a { color: #e07b2a; text-decoration: none; }
+  .contact-option strong { color: #e8edf2; }
+  .contact-option a { color: #e07b2a; text-decoration: none; }
 
   .submit-btn {
     width: 100%;
@@ -327,9 +327,9 @@
 
   <hr class="divider" style="margin: 2rem 0;">
 
-  <div class="call-option">
-    <strong>Prefer to talk instead?</strong><br>
-    <a href="tel:+14022051216">Call us</a> or <a href="sms:+14022051216">send us a text</a> — we answer. Even at 2am.
+  <div class="contact-option">
+    <strong>Prefer a general question first?</strong><br>
+    Use the <a href="/#careers">contact form</a> and our office will follow up.
   </div>
 
   <a href="/" class="back-link">← Back to jbjfreight.com</a>
@@ -352,10 +352,10 @@
         document.getElementById('successMsg').style.display = 'block';
         window.scrollTo(0, 0);
       } else {
-        alert('Something went wrong — please call or text Brooke directly.');
+        alert('Something went wrong. Please try submitting the form again in a few minutes.');
       }
     } catch {
-      alert('Something went wrong — please call or text Brooke directly.');
+      alert('Something went wrong. Please try submitting the form again in a few minutes.');
     }
   });
 </script>
